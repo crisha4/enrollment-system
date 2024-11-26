@@ -1,16 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import CustomUserCreationForm
+# from .models import Post
 
-def main(request):
-    return render(request, "authentication/base.html",{})
+
+def land(request):
+  return render(request, 'authentication/land.html', {})
 
 def login(request):
-    return render(request, "authentication/login.html",{})
-
-def register(request):
-    return render(request, "authentication/register.html",{})
+  return render(request, 'authentication/login.html', {})
 
 def home(request):
-    return render(request, "authentication/home.html",{})
+  return render(request, 'authentication/home.html', {})
 
-def logout(request):
-    pass
+def register(request):
+  if request.method == 'POST':
+    form = CustomUserCreationForm(request.POST)
+    if form.is_valid():
+      form.save()  # Save the form to create a new user
+      return redirect('login')  # Redirect to the login page after successful registration
+  else:
+    form = CustomUserCreationForm()
+
+  return render(request, 'authentication/register.html', {'form': form})
