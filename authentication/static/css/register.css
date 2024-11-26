@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 .registration-form {
-  width: 90%;
+  width: 100%;
   max-width: 900px;
   margin: auto;
   padding: 20px 40px;
@@ -27,9 +27,8 @@ body {
 }
 
 .form-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
   margin-bottom: 8px;
 }
 
@@ -42,13 +41,16 @@ body {
 
 .form-section input,
 .form-section select {
-  width: 48%;
+  width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin: 5px 5px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+}
+.form-section div{
+  margin-right: 20px;
 }
 
 .form-section input::placeholder {
