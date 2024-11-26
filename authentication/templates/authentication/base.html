@@ -8,6 +8,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}">
+    {% block css %}{% endblock %}
 
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +17,7 @@
 
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="{% static 'images/CVSU-LOGO.png' %}" alt="University Logo" class="logo">
-            <h2>CAVITE STATE UNIVERSITY</h2>
-            <h3>Bacoor City Campus</h3>
-            <h4>Department Of Computer Studies</h4>
-            <h5>Enrollment System</h5>
-            <div class="buttons">
-                <a href="/login"><button class="student-btn">Log In</button></a>
-                <a href="/register"><button class="register-btn">Register</button></a>
-            </div>
-        </div>
-    </div>
-  <!-- {% block content %} --> 
-  <!--   {% endblock %}--> 
+    {% block content %} 
+    {% endblock %}
 </body>
 </html>

@@ -1,0 +1,75 @@
+{% extends "authentication/base.html" %}
+
+{% load static %}
+
+{% block title %}Enrollment System{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="registration-form">
+            <h2>Registration Form</h2>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div></div>
+                    <div>
+                        {{ form.first_name }}
+                    </div>
+                    <div>
+                        {{ form.middle_name }}
+                    </div>
+                    <div>
+                        {{ form.last_name }}
+                    </div>
+                    <div>
+                        {{ form.suffix }}
+                    </div>
+                    <div>
+                        {{ form.email }}
+                    </div>
+                    <div>
+                        {{ form.contact_number }}
+                    </div>
+                    <div>
+                        {{ form.dob }}
+                    </div>
+                    <div>
+                        {{ form.gender }}
+                    </div>
+                    <div>
+                        {{ form.address }}
+                    </div>
+                </div>
+
+                <!-- Second Section: Student Information -->
+                <div class="form-section">
+                    <h3>Student Information</h3>    
+                    <div></div>
+                    <div>
+                        {{ form.student_type }}
+                    </div>
+                    <div>
+                        {{ form.course }}
+                    </div>
+                    <div>
+                        {{ form.year_level }}
+                    </div>
+                    <div>
+                        {{ form.student_id }}
+                    </div>
+                </div>
+
+                <button type="submit">Register</button>
+                <div class="login-link">
+                    Already have an account? <a href="/login">Log In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
